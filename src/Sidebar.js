@@ -8,13 +8,15 @@ import ChatIcon from "@material-ui/icons/Chat";
 import StorefrontIcon from "@material-ui/icons/Storefront";
 import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
 import { ExpandMoreOutlined } from "@material-ui/icons";
+import { useStateValue } from './StateProvider';
 
 function Sidebar() {
+    const [{ user }, dispatch] = useStateValue();
     return (
         <div className='sidebar'>
             <SidebarRow 
-                src='https://avatars3.githubusercontent.com/u/68781759?s=60&v=4'
-                title='zafar irshad'
+                src={user.photoURL}
+                title={user.displayName}
             />
             <SidebarRow 
                 Icon={LocalHospitalIcon}
